@@ -1,8 +1,10 @@
 ---
 title: "try"
-author: "Tacconi"
+author: "Nellans, Tacconi"
 date: "September 27, 2018"
-output: html_document
+output:
+  word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -29,6 +31,7 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+https://github.com/inellans/Lab3/commit/5e0a0fe4f107bb58b1a3358a74d9b1464592d54f
 
 ```{r}
 data(happy, package="productplots")
@@ -52,5 +55,12 @@ HAPPY$POLVIEWS = as.factor(HAPPY$PARTYID)
 HAPPY$SEX = levels(factor(HAPPY$SEX, levels=c("MALE", "FEMALE")))
 HAPPY$DEGREE = levels(factor(HAPPY$DEGREE, levels=c("HIGH SCHOOL", "BACHELOR")))
 HAPPY$FINRELA = levels(factor(HAPPY$FINRELA, levels=c("FAR ABOVE AVERAGE", "ABOVE AVERAGE", "AVERAGE", "BELOW AVERAGE", "FAR BELOW AVERAGE", "NA")))
+library(ggplot2)
+ggplot(aes(x = HAPPY, y = SEX), data = HAPPY) + geom_point()
+ggplot(HAPPY, aes(x = HAPPY)) + geom_bar() + facet_wrap(~MARITAL)
 ```
-```
+
+
+Sex does not seem to have a large effect on happiness, as the plots for males and females seem to be fairly similar.
+
+Marital status seems to have a positive effect on happiness leves, as the bar chart for happiness for married people has more mappy data.
