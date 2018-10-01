@@ -28,3 +28,28 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+data(happy, package="productplots")
+head(happy)
+readRDS('C:/users/inellans/Desktop/HAPPY.rds')
+HAPPY = readRDS('C:/users/inellans/Desktop/HAPPY.rds')
+HAPPY$POLVIEWS = HAPPY[HAPPY$POLVIEWS %in% c("IAP", "DK", "NA"), "POLVIEWS"] <- NA
+HAPPY$SEX = HAPPY[HAPPY$SEX %in% c("IAP", "DK", "NA"), "SEX"] <- NA
+HAPPY$MARITAL = HAPPY[HAPPY$MARITAL %in% c("IAP", "DK", "NA"), "MARITAL"] <- NA
+HAPPY$DEGREE = HAPPY[HAPPY$DEGREE %in% c("IAP", "DK", "NA"), "DEGREE"] <- NA
+HAPPY$FINRELA = HAPPY[HAPPY$FINRELA %in% c("IAP", "DK", "NA"), "FINRELA"] <- NA
+HAPPY$HEALTH = HAPPY[HAPPY$HEALTH %in% c("IAP", "DK", "NA"), "HEALTH"] <- NA
+HAPPY$PARTYID = HAPPY[HAPPY$PARTYID %in% c("IAP", "DK", "NA"), "PARTYID"] <- NA
+HAPPY$SEX = as.factor(HAPPY$SEX)
+HAPPY$MARITAL = as.factor(HAPPY$MARITAL)
+HAPPY$DEGREE = as.factor(HAPPY$DEGREE)
+HAPPY$FINRELA = as.factor(HAPPY$FINRELA)
+HAPPY$HEALTH = as.factor(HAPPY$HEALTH)
+HAPPY$PARTYID = as.factor(HAPPY$PARTYID)
+HAPPY$POLVIEWS = as.factor(HAPPY$PARTYID)
+HAPPY$SEX = levels(factor(HAPPY$SEX, levels=c("MALE", "FEMALE")))
+HAPPY$DEGREE = levels(factor(HAPPY$DEGREE, levels=c("HIGH SCHOOL", "BACHELOR")))
+HAPPY$FINRELA = levels(factor(HAPPY$FINRELA, levels=c("FAR ABOVE AVERAGE", "ABOVE AVERAGE", "AVERAGE", "BELOW AVERAGE", "FAR BELOW AVERAGE", "NA")))
+```
+```
